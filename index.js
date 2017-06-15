@@ -19,7 +19,8 @@ MoveWebpackPlugin.prototype.apply = function(compiler) {
       callback();
     });
   } else {
-    compiler.plugin('done', function(state) {
+    compiler.plugin('after-emit', function(compilation, callback) {
+      callback();
       self.doMove();
     });
   }
